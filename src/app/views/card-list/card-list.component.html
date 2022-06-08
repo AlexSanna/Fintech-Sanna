@@ -1,0 +1,11 @@
+<mat-list>
+  <div mat-subheader>Carte</div>
+  <mat-list-item *ngFor="let card of cards">
+    <mat-icon mat-list-icon>credit_card</mat-icon>
+    <div mat-line>{{card.numeroCarta}}</div>
+    <div mat-line> €{{card.saldo}} - {{card.tipoCarta}}  </div>
+    <mat-icon matSuffix (click)="vediMovimenti.emit(card.numeroCarta)" >receipt_long</mat-icon>
+    <mat-icon matSuffix (click)="rimuovi.emit(card)" >delete</mat-icon>
+  </mat-list-item>
+</mat-list>
+<button class="px-4 w-full" mat-stroked-button (click)="aggiungi.emit()" >Aggiungi</button>

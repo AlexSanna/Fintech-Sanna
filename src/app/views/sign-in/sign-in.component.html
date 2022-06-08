@@ -1,0 +1,24 @@
+<form [formGroup]="signIn" (ngSubmit)="signInAccedi()" class="flex flex-col">
+  <mat-form-field appearance="fill">
+    <mat-icon matPrefix>mail</mat-icon>
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="emailForm" placeholder="Ex. pat@example.com">
+     <mat-error *ngIf="mail?.invalid">
+      Inserisci una Mail valida
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-icon matPrefix>password</mat-icon>
+    <mat-label>Password</mat-label>
+    <mat-icon matSuffix (click)="visibilityPass = !visibilityPass">{{visibilityPass? 'visibility':'visibility_off'}}</mat-icon>
+
+    <input [type]="visibilityPass? 'text':'password'" matInput formControlName="passwordForm" placeholder="Inserisci Pass">
+      <mat-error *ngIf="pass?.invalid">
+      Inserisci una Password valida
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Accedi</button>
+</form>
+<p class="text-sky-700 text-lg font-semibold" (click)="nuovoAccaunt.emit()">Crea un nuovo Account</p>

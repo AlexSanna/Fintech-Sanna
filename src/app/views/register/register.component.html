@@ -1,0 +1,43 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerLog" class="flex flex-col">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="emailForm" placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="mail?.invalid">
+      Inserisci una Mail valida
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input type="text" matInput formControlName="nameForm" placeholder="Nome">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Cognome</mat-label>
+    <input type="text" matInput formControlName="surnameForm" placeholder="Cognome">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <mat-icon matSuffix (click)="visibilityPass = !visibilityPass">{{visibilityPass? 'visibility':'visibility_off'}}</mat-icon>
+
+    <input [type]="visibilityPass? 'text':'password'" matInput formControlName="passwordForm" placeholder="Inserisci Pass">
+      <mat-error *ngIf="pass?.invalid">
+      Inserisci una Password valida
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ripeti Password</mat-label>
+    <mat-icon matSuffix (click)="ripetiVisibilityPass = !ripetiVisibilityPass">{{visibilityPass? 'visibility':'visibility_off'}}</mat-icon>
+
+    <input [type]="ripetiVisibilityPass? 'text':'password'" matInput formControlName="ripetiPasswordForm" placeholder="Ripeti la Password">
+      <mat-error *ngIf="ripetiPass?.invalid">
+      Le Password non corrispondono
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Registrati</button>
+</form>
+<p class="text-sky-700 text-lg font-semibold" (click)="vaiAllAccaunt.emit()">Hai già un'accaunt? Accedi</p>
+

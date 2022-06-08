@@ -1,0 +1,32 @@
+<form [formGroup]="aggiungiCartaForm" (ngSubmit)="aggiungiCarta()" class="flex flex-col w-full">
+<mat-form-field appearance="fill">
+  <mat-label>Tipo di Carta</mat-label>
+  <mat-select formControlName="selezionaForm">
+    <mat-option value="Mastercard">Mastercard</mat-option>
+    <mat-option value="Visa">Visa</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Nome</mat-label>
+  <input type="text" matInput formControlName="nomeForm" placeholder="Nome">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Cognome</mat-label>
+  <input type="text" matInput formControlName="cognomeForm" placeholder="Cognome">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Numero Carta</mat-label>
+  <input type="text" matInput formControlName="numeroCartaForm" placeholder="Numero Carta">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Codice di Sicurezza</mat-label>
+  <input type="text" matInput formControlName="codiceSicurezzaForm" placeholder="Codice di Sicurezza">
+</mat-form-field>
+
+<button type="submit" mat-raised-button color="primary"(click)="aggiungiCreditCard.emit()">Aggiungi Carta</button>
+<button type="button" mat-stroked-button color="warn" (click)="cleanup()">Annulla</button>
+</form>

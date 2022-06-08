@@ -1,0 +1,13 @@
+  <mat-accordion>
+    <mat-expansion-panel *ngFor=  "let movement of movements">
+
+      <mat-expansion-panel-header >
+        <mat-panel-title>[{{ movement.timestamp | date: 'dd/MM/yyyy' }}]
+          <span [ngStyle]="{'color': movement.type === 'in' ? 'green' : 'red'}"> €{{movement.amount}} </span>
+           {{movement.title}}
+          </mat-panel-title>
+        <mat-panel-description>{{ movement.description|  truncate : 5 }}</mat-panel-description>
+      </mat-expansion-panel-header>
+      {{movement.description}}
+    </mat-expansion-panel>
+  </mat-accordion>

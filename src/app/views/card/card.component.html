@@ -1,0 +1,15 @@
+<mat-drawer-container class="h-full" autosize>
+  <mat-drawer position="end" #drawer mode="side">
+    <al-card-form
+     (aggiungiCreditCard)="pushCarta($event)"
+    (annulla)="drawer.toggle(false)"
+    ></al-card-form>
+
+  </mat-drawer>
+  <div>
+    <al-card-list
+    [cards]="cards" (rimuovi)="cancellaCarta($event)"
+    (aggiungi)="drawer.toggle(true)">
+    </al-card-list>
+  </div>
+</mat-drawer-container>

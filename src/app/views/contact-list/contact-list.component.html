@@ -1,0 +1,21 @@
+<mat-list>
+  <mat-form-field appearance="fill">
+
+    <mat-label>Cerca</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+
+    <div mat-subheader>Contatti</div>
+    <mat-list-item *ngFor="let contact of contacts">
+      <mat-icon mat-list-icon>contacts</mat-icon>
+      <div mat-line>{{contact.name}} {{contact.surname}} <br>
+        {{contact.iban}}
+        <mat-icon matSuffix>check</mat-icon>
+        <mat-icon matSuffix>edit</mat-icon>
+        <mat-icon matSuffix>delete</mat-icon>
+      </div>
+
+    </mat-list-item>
+
+  </mat-list>
